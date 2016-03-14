@@ -1,5 +1,9 @@
-export function useragent(liveRegexp: boolean): void
-export namespace useragent {
+declare module "useragent" {
+  export function useragent(liveRegexp: boolean): void
+  export function fromJSON(a: Agent): Agent
+  export function is(ua: string): AgentIs
+  export function lookup(ua: string, jsUa?: string): Agent
+  export function parse(ua: string, jsUa?: string): Agent
   interface Agent {
     device: Device
     family: string
@@ -35,8 +39,4 @@ export namespace useragent {
     toString(): string
     toVersion(): string
   }
-  function fromJSON(a: Agent): Agent
-  function is(ua: string): AgentIs
-  function lookup(ua: string, jsUa?: string): Agent
-  function parse(ua: string, jsUa?: string): Agent
 }
